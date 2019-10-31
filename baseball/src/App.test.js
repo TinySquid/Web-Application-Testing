@@ -10,6 +10,7 @@ test('App renders without crashing', () => {
   rtl.render(<App />);
 });
 
+//Wanted to try out the .toHaveBeenCalled method
 test('Button component fires onClick event', () => {
   const onClick = jest.fn();
   const { getByText } = rtl.render(<Button clickHandler={onClick}>myButton</Button>);
