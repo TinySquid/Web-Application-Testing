@@ -2,10 +2,20 @@ import React from 'react';
 import * as rtl from '@testing-library/react';
 import App from './App';
 
+
+import Button from './components/Button';
 // afterEach(rtl.cleanup);
 
 test('App renders without crashing', () => {
   rtl.render(<App />);
+});
+
+test('Button component fires onClick event', () => {
+  const onClick = jest.fn();
+  const { getByText } = rtl.render(<Button clickHandler={onClick}>myButton</Button>);
+
+  rtl.fireEvent.click(getByText(/myButton/));
+  expect(onClick).toHaveBeenCalled();
 });
 
 test('Ball count increases on click', () => {

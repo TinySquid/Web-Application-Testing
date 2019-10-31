@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Display from './Display';
+import Button from './Button';
 
 export default class Dashboard extends Component {
   state = {
@@ -52,10 +53,10 @@ export default class Dashboard extends Component {
       <>
         <Display balls={this.state.balls} strikes={this.state.strikes} />
         <div className="buttons">
-          <button onClick={this.strike}>Strike</button>
-          <button onClick={this.ball}>Ball</button>
-          <button onClick={this.foul}>Foul</button>
-          <button onClick={this.hit}>Hit</button>
+          <Button clickHandler={this.strike}>Strike</Button>
+          <Button clickHandler={this.ball}>Ball</Button>
+          <Button clickHandler={this.foul}>Foul</Button>
+          <Button clickHandler={this.hit}>Hit</Button>
         </div>
       </>
     )
