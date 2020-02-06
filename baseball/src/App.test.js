@@ -25,6 +25,7 @@ test('Ball count increases on click', () => {
   expect(wrapper.getByText(/Balls: 0/));
 
   rtl.fireEvent.click(wrapper.getByText(/^Ball$/));
+
   expect(wrapper.getByText(/Balls: 1/));
 });
 
@@ -43,7 +44,10 @@ test('Fouls increase strikes on click', () => {
   expect(wrapper.getByText(/Strikes: 0/));
 
   rtl.fireEvent.click(wrapper.getByText(/^Foul$/));
-  expect(wrapper.getByText(/Strikes: 1/));
+  rtl.fireEvent.click(wrapper.getByText(/^Foul$/));
+  rtl.fireEvent.click(wrapper.getByText(/^Foul$/));
+
+  expect(wrapper.getByText(/Strikes: 2/));
 });
 
 test('Strikes reset to 0 when a player reaches 3 strikes', () => {
